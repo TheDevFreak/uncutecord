@@ -30,7 +30,7 @@ module.exports = class Settings extends React.Component {
       <RadioGroup
         disabled={ false }
         options={ [
-          { name: 'Cutecord Enabled uwu',
+          { name: 'UnCutecord Enabled',
             value: 'cute' },
           { name: 'Discord Default',
             value: 'default' },
@@ -75,7 +75,7 @@ module.exports = class Settings extends React.Component {
         @everyone
       </SwitchItem>
       <SwitchItem
-        note="Makes DND act like any other status uwu"
+        note="Makes DND act like any other status"
         style={{ marginTop: '16px' }}
         value={this.state.overrideDND}
         onChange={() => {
@@ -98,8 +98,8 @@ module.exports = class Settings extends React.Component {
       </SwitchItem>
 
       <Category
-        name='Cutes'
-        description="you'll always get notifications from these owo"
+        name='Mention Overrides'
+        description="Users, Guilds, Channels, Roles and Keywords to mention for"
         opened={ this.state.cuteSettings }
         onChange={() => this.setState({ cuteSettings: !this.state.cuteSettings })}
       >
@@ -108,7 +108,7 @@ module.exports = class Settings extends React.Component {
           onChange={u => this.props.updateSetting('cuteUsers', u.split(',').map(id => id.trim()))}
           note={
             <p>
-              Use IDs for these uwu
+              Use IDs for these (comma delimited)
             </p>
           }
         >
@@ -135,8 +135,8 @@ module.exports = class Settings extends React.Component {
       </Category>
 
       <Category
-        name='Meanies'
-        description="say goodbye to notifications from these >:3c"
+        name='Hide Mentions From'
+        description="Users, Guilds, Channels, Roles and Keywords not to mention for"
         opened={ this.state.uncuteSettings }
         onChange={() => this.setState({ uncuteSettings: !this.state.uncuteSettings })}
       >
@@ -145,7 +145,7 @@ module.exports = class Settings extends React.Component {
           onChange={u => this.props.updateSetting('uncuteUsers', u.split(',').map(id => id.trim()))}
           note={
             <p>
-              Use IDs for these Owo
+              Use IDs for these (comma delimited)
             </p>
           }
         >
@@ -216,7 +216,7 @@ module.exports = class Settings extends React.Component {
           Detection Method
         </RadioGroup>
         <SwitchItem
-          note="Should messages with a cute word in appear like a mention?"
+          note="Should messages with a set keyword in appear like a mention?"
           style={{ marginTop: '16px' }}
           value={this.state.highlightKeywords}
           onChange={() => {
